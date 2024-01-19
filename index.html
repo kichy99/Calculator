@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator1</title>
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+    outline: none;
+    background-color: aliceblue;
+    
+}
+
+#container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(pink, grey, blue);
+
+}
+
+#buts{
+    box-shadow: 6px 6px 13px black;
+    border-radius: 28px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(4,70px); //repeating column
+}
+
+input{
+    grid-column: span 4;
+    height: 68px;
+    box-shadow: inset -6px -6px 13px rgba(226, 228, 230, 0.856),
+                inset -6px -6px 13px whitesmoke;
+    border: none;
+    border-radius: 32px;
+    color: rgb(26,25,25);
+    text-align: end;
+    margin: 40px 0px 30px 0px;
+    padding: 20px;
+    font-size: 40px;
+
+}     
+
+button{
+    border: none;
+    border-radius: 50%;
+    box-shadow:   6px 6px 13px rgba(226, 228, 230, 0.856),
+                 6px 6px 13px pink;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.equal{
+    width: 120px;
+    border-radius: 42px;
+}
+</style>
+
+</head>
+<body>
+   
+        <div id="container">
+       <div id="buts">
+            <input type="text" id="inputtext" placeholder="0">
+            
+        <button onclick="clr()" value="" >C</button>
+        <button onclick="del()" value="" >DEL</button>
+        <button onclick="calculate('%')" value="" >%</button>
+        <button onclick="calculate('/')" value="" >/</button>
+        <button onclick="calculate(7)"  value="7">7</button>
+        <button onclick="calculate(8)" value="8">8</button>
+        <button  onclick="calculate(9)" value="9">9</button>
+        <button onclick="calculate('*')" value="">*</button>
+        <button onclick="calculate(4)" value="4">4</button>
+        <button onclick="calculate(5)"  value="5">5</button>
+        <button onclick="calculate(6)" value="6">6</button>
+        <button onclick="calculate('-')" value="">-</button>
+        <button onclick="calculate(1)" value="1">1</button>
+        <button onclick="calculate(2)"  value="">2</button>
+        <button onclick="calculate(3)" value="3">3</button>
+        <button onclick="calculate('+')"  value="">+</button>
+        <button onclick="calculate('.')" value=".">.</button>
+        <button onclick="calculate(0)" value="0" >0</button>
+        <button class="equal" onclick="RESULT()" value="" >=</button>
+       
+        </div>
+  
+    </div>
+
+<script>
+
+let result=document.getElementById("inputtext");
+console.log(result);
+
+let calculate=(number)=>{
+    // result.value=result.value+number;
+    result.value=result.value+number;
+    console.log(number);
+    console.log(calculate);
+    console.log(result.value);
+}
+
+let RESULT=()=>{
+    try{
+        result.value=eval(result.value)
+    }
+    catch(err){
+        alert("Enter the valid result");
+    }
+}
+    
+
+function clr(){
+    result.value=""; //" "it means empty
+}
+
+function del(){
+    result.value=result.value.slice(0,-1);
+}
+
+
+
+    
+</script>
+   
+
+</body>
+</html>
